@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -31,5 +32,8 @@ public class Sale {
     @ManyToOne
     @JoinColumn(name = "codeUser", foreignKey = @ForeignKey(name = "FK_user"))
     private User userSale;
+
+    @OneToMany(mappedBy = "saleDetailSale", cascade = CascadeType.ALL)
+    private List<DetailSale> detailSalesSale;
 
 }

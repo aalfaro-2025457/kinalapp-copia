@@ -3,6 +3,7 @@ package com.angelalfaro.kinalapp.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -25,5 +26,8 @@ public class Product {
 
     @Column
     private int stateProduct;
+
+    @OneToMany(mappedBy = "productDetailProduct", cascade = CascadeType.ALL)
+    private List<DetailSale> detailSalesProduct;
 
 }
