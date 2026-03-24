@@ -1,6 +1,6 @@
 package com.angelalfaro.kinalapp.repository;
 
-import com.angelalfaro.kinalapp.entity.User;
+import com.angelalfaro.kinalapp.entity.Product;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, UUID> {
+public interface ProductRepository extends JpaRepository<Product, UUID> {
 
-    Slice<User> findByStateUser(int state);
+    Slice<Product> findByStateProduct(int state);
 
 }
