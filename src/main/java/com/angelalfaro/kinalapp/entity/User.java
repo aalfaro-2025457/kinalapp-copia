@@ -3,12 +3,13 @@ package com.angelalfaro.kinalapp.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
 import java.util.UUID;
 
 @Data
 @Entity
-@Table(name = "usuers")
-public class Usuario {
+@Table(name = "usurs")
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -28,5 +29,8 @@ public class Usuario {
 
     @Column
     private int stateUser;
+
+    @OneToMany(mappedBy = "userSale", cascade = CascadeType.ALL)
+    private List<Sale> salesUser;
 
 }
