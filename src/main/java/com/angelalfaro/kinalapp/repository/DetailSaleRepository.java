@@ -1,7 +1,5 @@
 package com.angelalfaro.kinalapp.repository;
 
-import java.util.UUID;
-
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -13,5 +11,9 @@ import com.angelalfaro.kinalapp.entity.DetailSale;
 public interface DetailSaleRepository extends JpaRepository<DetailSale,Long> {
     
     Slice<DetailSale> findByStateDetailSale(int state, Pageable pageable);
+
+    Slice<DetailSale> findByProductDetailProductCodeProduct(Long codeProduct, Pageable pageable);
+
+    Slice<DetailSale> findBySaleDetailSaleCodeSale(Long codeSale, Pageable pageable);
 
 }
