@@ -23,6 +23,9 @@ public class DetailSale {
     @Column
     private double subtotal;
 
+    @Column
+    private int stateDetailSale;
+
     @ManyToOne
     @JoinColumn(name = "codeProduct", foreignKey = @ForeignKey(name = "FK_product"))
     private Product productDetailProduct;
