@@ -13,6 +13,6 @@ public interface SaleRepository extends JpaRepository<Sale, Long> {
 
     Slice<Sale> findByClientSaleDPIClient(String clientDPI, Pageable pageable);
 
-    Slice<Sale> findByUserSalecodeUser(String codeUser, Pageable pageable);
+    Slice<Sale> findByUserSaleCodeUser(Long codeUser, Pageable pageable);
 
 }
