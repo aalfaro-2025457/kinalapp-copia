@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.angelalfaro.kinalapp.entity.DetailSale;
 
 @Repository
-public interface DetailSaleRepository extends JpaRepository<DetailSale,UUID> {
+public interface DetailSaleRepository extends JpaRepository<DetailSale,Long> {
     
     Slice<DetailSale> findByStateDetailSale(int state);
 
