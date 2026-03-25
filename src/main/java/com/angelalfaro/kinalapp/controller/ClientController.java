@@ -1,16 +1,12 @@
 package com.angelalfaro.kinalapp.controller;
 
 import com.angelalfaro.kinalapp.entity.Client;
-import com.angelalfaro.kinalapp.repository.ClientRepository;
-import com.angelalfaro.kinalapp.service.ClientService;
-import com.angelalfaro.kinalapp.service.IClientService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.angelalfaro.kinalapp.service.client.ClientService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 //@RestController = @Controller + @RequestBody
