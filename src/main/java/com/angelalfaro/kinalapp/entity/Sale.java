@@ -13,8 +13,8 @@ import java.util.UUID;
 public class Sale {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID codeSale;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long codeSale;
 
     @Column(nullable = false)
     private LocalDateTime saleDateSale;

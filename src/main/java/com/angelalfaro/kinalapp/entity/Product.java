@@ -12,8 +12,8 @@ import java.util.UUID;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID codeProduct;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long codeProduct;
 
     @Column
     private String nameProduct;
