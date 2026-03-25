@@ -36,18 +36,20 @@ public class UserServiceImpl implements IUserService{
         validateUser(user);
         if(user.getStateUser() == 0)
             user.setStateUser(1);
-        if(user.getRolUser() == null || user.getRolUser() == "")
+        if(user.getRolUser() == null || user.getRolUser().trim().isEmpty())
             user.setRolUser("USER");
 
         return userRepository.save(user);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<User> findByCodeUser(Long codeUser) {
         return userRepository.findById(codeUser);
     }
 
     @Override
+    @Transactional
     public User updateUser(Long codeUser, User user) {
 
         if(!userRepository.existsById(codeUser)){
@@ -90,6 +92,7 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
+    @Transactional
     public void deleteUser(Long codeUser) {
 
         if (!userRepository.existsById(codeUser)){
@@ -101,6 +104,7 @@ public class UserServiceImpl implements IUserService{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public boolean existsByCodeUser(Long codeUser) {
         return userRepository.existsById(codeUser);
     }
