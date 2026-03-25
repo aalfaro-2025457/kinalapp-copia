@@ -3,6 +3,7 @@ package com.angelalfaro.kinalapp.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -20,7 +21,7 @@ public class Sale {
     private LocalDateTime saleDateSale;
 
     @Column
-    private double totalSale;
+    private BigDecimal totalSale;
 
     @Column
     private int stateSale;
