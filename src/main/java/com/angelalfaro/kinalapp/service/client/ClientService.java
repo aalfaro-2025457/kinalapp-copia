@@ -1,4 +1,4 @@
-package com.angelalfaro.kinalapp.service;
+package com.angelalfaro.kinalapp.service.client;
 
 import com.angelalfaro.kinalapp.entity.Client;
 import com.angelalfaro.kinalapp.repository.ClientRepository;
