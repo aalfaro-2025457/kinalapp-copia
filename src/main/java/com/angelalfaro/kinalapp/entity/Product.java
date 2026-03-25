@@ -3,6 +3,7 @@ package com.angelalfaro.kinalapp.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -19,7 +20,7 @@ public class Product {
     private String nameProduct;
 
     @Column
-    private double priceProduct;
+    private BigDecimal priceProduct;
 
     @Column
     private int stockProduct;

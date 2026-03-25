@@ -3,6 +3,7 @@ package com.angelalfaro.kinalapp.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.util.UUID;
 
 @Data
@@ -18,10 +19,10 @@ public class DetailSale {
     private int amountDetailSale;
 
     @Column
-    private double unitPriceDetailSale;
+    private BigDecimal unitPriceDetailSale;
 
     @Column
-    private double subtotal;
+    private BigDecimal subtotal;
 
     @Column
     private int stateDetailSale;
