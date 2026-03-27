@@ -16,16 +16,16 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codeProduct;
 
-    @Column
+    @Column(nullable = false)
     private String nameProduct;
 
-    @Column
+    @Column(nullable = false)
     private BigDecimal priceProduct;
 
-    @Column
+    @Column(nullable = false)
     private int stockProduct;
 
-    @Column
+    @Column(nullable = false)
     private int stateProduct;
 
     @OneToMany(mappedBy = "productDetailProduct", cascade = CascadeType.ALL)
