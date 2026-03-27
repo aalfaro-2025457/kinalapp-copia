@@ -26,12 +26,12 @@ public class DetailSale {
     @Column(nullable = false)
     private int stateDetailSale;
 
-    @ManyToOne
-    @JoinColumn(name = "codeProduct", foreignKey = @ForeignKey(name = "FK_product"))
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "codeProduct", foreignKey = @ForeignKey(name = "FK_product"), nullable = false)
     private Product productDetailProduct;
 
-    @ManyToOne
-    @JoinColumn(name = "codeSale", foreignKey = @ForeignKey(name = "FK_sale"))
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "codeSale", foreignKey = @ForeignKey(name = "FK_sale"), nullable = false)
     private Sale saleDetailSale;
 
 }
