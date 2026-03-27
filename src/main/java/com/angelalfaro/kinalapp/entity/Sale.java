@@ -20,18 +20,18 @@ public class Sale {
     @Column(nullable = false, updatable = false)
     private LocalDateTime saleDateSale;
 
-    @Column
+    @Column(nullable = false)
     private BigDecimal totalSale;
 
-    @Column
+    @Column(nullable = false)
     private int stateSale;
 
     @ManyToOne
-    @JoinColumn(name = "dpi_client", foreignKey = @ForeignKey(name = "FK_client"))
+    @JoinColumn(name = "dpi_client", foreignKey = @ForeignKey(name = "FK_client"), nullable = false)
     private Client clientSale;
 
     @ManyToOne
-    @JoinColumn(name = "codeUser", foreignKey = @ForeignKey(name = "FK_user"))
+    @JoinColumn(name = "codeUser", foreignKey = @ForeignKey(name = "FK_user"), nullable = false)
     private User userSale;
 
     @OneToMany(mappedBy = "saleDetailSale", cascade = CascadeType.ALL)
