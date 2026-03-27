@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @Data
 @Entity
@@ -15,16 +14,16 @@ public class DetailSale {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codeDetailSale;
 
-    @Column
+    @Column(nullable = false)
     private int amountDetailSale;
 
-    @Column
+    @Column(nullable = false)
     private BigDecimal unitPriceDetailSale;
 
-    @Column
+    @Column(nullable = false)
     private BigDecimal subtotal;
 
-    @Column
+    @Column(nullable = false)
     private int stateDetailSale;
 
     @ManyToOne
