@@ -15,19 +15,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codeUser;
 
-    @Column
+    @Column(nullable = false)
     private String usernameUser;
 
-    @Column
+    @Column(nullable = false)
     private String passwordUser;
 
-    @Column
+    @Column(nullable = false)
     private String emailUser;
 
-    @Column
+    @Column(nullable = false)
     private String rolUser;
 
-    @Column
+    @Column(nullable = false)
     private int stateUser;
 
     @OneToMany(mappedBy = "userSale", cascade = CascadeType.ALL)
