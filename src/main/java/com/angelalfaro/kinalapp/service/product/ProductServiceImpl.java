@@ -101,7 +101,7 @@ public class ProductServiceImpl implements IProductService{
         if (product.getNameProduct() == null || product.getNameProduct().trim().isEmpty()){
             throw new IllegalArgumentException("El nombre es obligatorio");
         }
-        if (product.getPriceProduct() == null || product.getPriceProduct().signum() >= 0){
+        if (product.getPriceProduct() == null || product.getPriceProduct().signum() <= 0){
             throw new IllegalArgumentException("El precio es obligatorio, tiene que ser mayor a 0");
         }
         if (product.getStockProduct() < 0){
