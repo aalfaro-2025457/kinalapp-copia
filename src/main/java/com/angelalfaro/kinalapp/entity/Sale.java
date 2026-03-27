@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Data
 @Entity
 @Table(name = "sales")
@@ -17,7 +19,7 @@ public class Sale {
     private Long codeSale;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime saleDateSale;
+    private LocalDateTime saleDateSale = LocalDateTime.now();
 
     @Column(nullable = false)
     private BigDecimal totalSale;
@@ -25,10 +27,12 @@ public class Sale {
     @Column(nullable = false)
     private int stateSale;
 
+    @JsonIgnoreProperties("salesClient")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dpi_client", foreignKey = @ForeignKey(name = "FK_client"), nullable = false)
     private Client clientSale;
 
+    @JsonIgnoreProperties("salesUser")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "codeUser", foreignKey = @ForeignKey(name = "FK_user"), nullable = false)
     private User userSale;
