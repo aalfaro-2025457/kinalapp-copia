@@ -11,16 +11,20 @@ import java.util.List;
 @Table(name="clients")
 public class Client {
 
-    @Column(name="dpi_client")
+    @Column(name="dpi_client", nullable = false)
     @Id
     private String DPIClient;
-    @Column
+
+    @Column(nullable = false)
     private String nameClient;
-    @Column
+
+    @Column(nullable = false)
     private String lastNameClient;
-    @Column
+
+    @Column(nullable = false)
     private String direction;
-    @Column
+
+    @Column(nullable = false)
     private int state;
 
     @OneToMany(mappedBy = "clientSale", cascade = CascadeType.ALL)
