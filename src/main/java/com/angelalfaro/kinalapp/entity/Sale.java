@@ -17,7 +17,7 @@ public class Sale {
     private Long codeSale;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime saleDateSale;
+    private LocalDateTime saleDateSale = LocalDateTime.now();
 
     @Column(nullable = false)
     private BigDecimal totalSale;
