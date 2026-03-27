@@ -83,8 +83,8 @@ public class UserServiceImpl implements IUserService{
                 ? user.getRolUser() : u.get().getRolUser());
 
         //Set the last state if you don't send a new state
-        user.setStateUser(Integer.parseInt(user.getRolUser() == null
-                ? user.getRolUser() : u.get().getRolUser()));
+        user.setStateUser(user.getStateUser() <= 0
+                ? user.getStateUser() : u.get().getStateUser());
 
         validateUser(user);
 
