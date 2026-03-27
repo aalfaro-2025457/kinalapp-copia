@@ -15,12 +15,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
-
 
 @RequiredArgsConstructor
 @RestController
@@ -53,7 +50,7 @@ public class UserController {
     @GetMapping("/{codeUser}")
     public ResponseEntity<User> getUserByCode(@PathVariable(name = "codeUser") Long codeUser) {
         return userService.findByCodeUser(codeUser)
-                //If Optional has a value, return status 200 ok with the client
+                //If Optional has a value, return status 200 ok with the user
                 // :: call a method of a class
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
@@ -99,9 +96,9 @@ public class UserController {
                 return ResponseEntity.notFound().build();
             }
 
-            User updClient = userService.updateUser(codeUser,user);
+            User updUser = userService.updateUser(codeUser,user);
 
-            return ResponseEntity.ok(updClient);
+            return ResponseEntity.ok(updUser);
 
 
         } catch (IllegalArgumentException e) {
