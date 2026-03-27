@@ -5,6 +5,8 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Data
 @Entity
 @Table(name = "detail_sales")
@@ -26,10 +28,12 @@ public class DetailSale {
     @Column(nullable = false)
     private int stateDetailSale;
 
+    @JsonIgnoreProperties("detailSalesProduct")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "codeProduct", foreignKey = @ForeignKey(name = "FK_product"), nullable = false)
     private Product productDetailProduct;
 
+    @JsonIgnoreProperties("detailSalesSale")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "codeSale", foreignKey = @ForeignKey(name = "FK_sale"), nullable = false)
     private Sale saleDetailSale;
