@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("detail-sales")
+@RequestMapping("/detail-sales")
 public class DetailSaleController {
     
     private final DetailSaleServiceImpl detailSaleService;
