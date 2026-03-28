@@ -102,7 +102,7 @@ public class DetailSaleServiceImpl implements IDetailSaleService{
     }
 
     public void validateDetailSale(DetailSale detailSale){
-        if (detailSale.getAmountDetailSale() >= 0){
+        if (detailSale.getAmountDetailSale() <= 0){
             throw new IllegalArgumentException("La cantidad es obligatoria, tiene que ser mayor a 0");
         }
         if ( detailSale.getUnitPriceDetailSale() == null || detailSale.getUnitPriceDetailSale().signum() <= 0){
