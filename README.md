@@ -55,26 +55,38 @@ Tambien es importante mencionar que mi aplicaion ya tiene **SpringSecurity** en 
 ## EndPoints
 En esta seccion se explicara el **uso**, las **respuestas** y como es cada **endpoint** de los controladores
 
-### **ClientController**
+### ClientController
 
-#### GET  ``` http://localhost:8081/clients```
-EndPoint para obtener la lista de **Clientes** en la base de datos, devuelve **status** ```200 ok``` y la lista de Clientes
+#### GET `http://localhost:8081/clients`
+EndPoint para obtener la lista completa de **Clientes** registrados en la base de datos, devuelve **status** `200 OK` y la lista de Clientes.
 
-#### GET ```http://localhost:8081/clients/actives```
-EndPoint para obtener todos los **Clientes** activos en la base de datos, devuelve **status** ```200 ok``` y la lista de Clientes
+#### GET `http://localhost:8081/clients/actives`
+EndPoint para obtener únicamente la lista de **Clientes** con estado activo, devuelve **status** `200 OK` y la lista filtrada.
 
-#### GET ```http://localhost:8081/clients/{DPIClient}```
-EndPoint que devuelve el **Cliente** encontrado con el **DPIClient** en la base de datos, devuelve **status** ```200 ok``` y el Cliente
+#### GET `http://localhost:8081/clients/{DPIClient}`
+EndPoint que busca y devuelve un **Cliente** específico mediante su **DPI**, devuelve **status** `200 OK` si se encuentra o `404 Not Found` si no existe en los registros.
 
-#### POST ```http://localhost:8081/clients```
-Sirve para añadir un nuevo **Cliente** a la base de datos, devuelve **status** ```201 Created``` y el Cliente
+#### POST `http://localhost:8081/clients`
+Sirve para registrar un nuevo **Cliente** en el sistema, transformando el JSON del cuerpo en un objeto. Devuelve **status** `201 Created` y el Cliente creado, o `400 Bad Request` si los datos son inválidos.
 
-#### DELETE ```http://localhost:8081/clients/{DPIClient}```
-Sirve para eliminar un **Cliente** en la base de datos con el **DPIClient**, devuelve **status** ```204 No Content```
+##### Objeto a Enviar
 
-#### PUT ```http://localhost:8081/clients/{DPIClient}```
-EndPoint para actualizar un **Cliente** ya existente en la base de datos con el **DPIClient**, devuelve **status** ```200 ok``` y el Cliente
+``` json
+{
+    "DPIClient": "1",
+    "direction": "Kaminal Juyu, Guatemala",
+    "lastNameClient": "Alfaro",
+    "nameClient": "Angel",
+    "state": 1
+}
 
+```
+
+#### DELETE `http://localhost:8081/clients/{DPIClient}`
+Sirve para eliminar un **Cliente** de la base de datos utilizando su **DPI**, devuelve **status** `204 No Content` tras una eliminación exitosa o `404 Not Found` si el DPI no coincide con ningún registro.
+
+#### PUT `http://localhost:8081/clients/{DPIClient}`
+EndPoint para actualizar la información de un **Cliente** existente mediante su **DPI**, devuelve **status** `200 OK` con el objeto actualizado, `400 Bad Request` por errores de validación o `404 Not Found` si el cliente no existe.
 ### **UserController**
 
 #### GET `http://localhost:8081/users`
@@ -88,6 +100,18 @@ EndPoint que devuelve el **Usuario** encontrado con el **codeUser** en la base d
 
 #### POST `http://localhost:8081/users`
 Sirve para añadir un nuevo **Usuario** a la base de datos, devuelve **status** `201 Created` y el Usuario. En caso de error en los datos, devuelve `400 Bad Request`.
+
+##### Objeto a Enviar
+``` json
+{
+    "usernameUser":"wotzoy",
+    "passwordUser":"admin123",
+    "emailUser":"wotzoy-2025592@kinal.edu.gt",
+    "rolUser":"USER",
+    "stateUser":1
+}
+```
+
 
 #### DELETE `http://localhost:8081/users/{codeUser}`
 Sirve para eliminar un **Usuario** en la base de datos con el **codeUser**, devuelve **status** `204 No Content` o `404 Not Found` si el usuario no existe.
@@ -109,6 +133,17 @@ EndPoint que devuelve el **Producto** encontrado con el **codeProduct** en la ba
 #### POST `http://localhost:8081/products`
 Sirve para añadir un nuevo **Producto** a la base de datos, devuelve **status** `201 Created` y el Producto creado. En caso de error en los datos, devuelve `400 Bad Request`.
 
+##### Objeto a Enviar
+``` json
+{
+    "nameProduct":"Jamon Chimex",
+    "priceProduct": 14.5,
+    "stockProduct":50,
+    "stateProduct":1
+}
+```
+
+
 #### DELETE `http://localhost:8081/products/{codeProduct}`
 Sirve para eliminar un **Producto** en la base de datos mediante el **codeProduct**, devuelve **status** `204 No Content` o `404 Not Found` si el producto no existe.
 
@@ -129,6 +164,20 @@ EndPoint que devuelve la **Venta** encontrada con el **codeSale** en la base de 
 #### POST `http://localhost:8081/sales`
 Sirve para registrar una nueva **Venta** en la base de datos, devuelve **status** `201 Created` y el objeto de la Venta. En caso de error en los datos, devuelve `400 Bad Request`.
 
+##### Objeto a Enviar
+``` json
+{
+    "totalSale":29,
+    "stateSale":1,
+    "clientSale":{
+        "DPIClient":"15"
+    },
+    "userSale":{
+        "codeUser":1
+    }
+}
+```
+
 #### DELETE `http://localhost:8081/sales/{codeSale}`
 Sirve para eliminar una **Venta** en la base de datos mediante el **codeSale**, devuelve **status** `204 No Content` o `404 Not Found` si la venta no existe.
 
@@ -148,6 +197,23 @@ EndPoint que devuelve el **Detalle de Venta** encontrado con el **codeDetailSale
 
 #### POST `http://localhost:8081/detail-sales`
 Sirve para añadir un nuevo **Detalle de Venta** (desglose de productos de una venta) a la base de datos, devuelve **status** `201 Created` y el objeto creado. En caso de error, devuelve `400 Bad Request`.
+
+##### Objeto a Enviar
+``` json
+{
+    "amountDetailSale":1,
+    "unitPriceDetailSale":29,
+    "subtotal":29,
+    "stateDetailSale":1,
+    "productDetailProduct":{
+        "codeProduct":3
+    },
+    "saleDetailSale":{
+        "codeSale":3
+    }
+}
+```
+
 
 #### DELETE `http://localhost:8081/detail-sales/{codeDetailSale}`
 Sirve para eliminar un **Detalle de Venta** en la base de datos mediante el **codeDetailSale**, devuelve **status** `204 No Content` o `404 Not Found` si el registro no existe.
