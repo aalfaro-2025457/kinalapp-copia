@@ -16,11 +16,46 @@ body {
 
 .title {
     color: #e9ebf0;
-    font-size: 6rem;
 }
 
 .card {
     background-color: #6b7ba5;
     padding: 1.8em;
     border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    color: #e9ebf0;
+    font-size: 1.2em;
+}
+
+.textfield {
+    margin: .8em;
+    padding: .3em;
+    font-size: 1.5em;
+    border-radius: 4px;
+    border: 0;
+    background-color: #c5cee2;
+    color: #394053;
+}
+
+.btn {
+    background-color: #86a2ee;
+    border: 0;
+    border-radius: 4px;
+    font-size: 1.2em;
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: .5em;
+    cursor: pointer;
+    transition: ease-in-out .3s;
+}
+
+.btn:hover {
+    background-color: #9fb3e9;
+    color: #1e2330;
 }
