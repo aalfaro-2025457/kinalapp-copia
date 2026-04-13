@@ -1,7 +1,7 @@
 package com.angelalfaro.kinalapp.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import com.angelalfaro.kinalapp.entity.User;
 import com.angelalfaro.kinalapp.service.user.UserServiceImpl;
@@ -12,12 +12,6 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @RequiredArgsConstructor
 @RestController
@@ -106,6 +100,38 @@ public class UserController {
         } catch (RuntimeException e){
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam String username, @RequestParam String password, Model model) {
+        User user = userService.login(username, password);
+        if (user != null) {
+            return "";
+        }
+        model.addAttribute("error", "Invalid username or password");
+        return "auth/login";
+    }
+
+    @GetMapping("/login")
+    public String showLoginForm() {
+        return "auth/login";
+    }
+
+    @PostMapping("/register")
+    public String registerUser(@ModelAttribute User user, Model model) {
+        if (userService.existsByUsername(user.getUsernameUser())) {
+            // Sends an error message back to the view
+            model.addAttribute("error", "Username is already taken");
+            return "auth/register";
+        }
+        userService.registerUser(user);
+        return "redirect:/login";
+    }
+
+    @GetMapping("/register")
+    public String showRegisterForm(Model model) {
+        model.addAttribute("user", new User());
+        return "auth/register";
     }
 
 }
