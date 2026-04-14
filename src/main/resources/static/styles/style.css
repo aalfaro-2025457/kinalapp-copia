@@ -137,24 +137,33 @@ body {
 }
 
 .bg-purple {
-    background-color: #804f81;
+    background: linear-gradient(#804f81, #7d3a7e);
 }
 
-.bg-purple:hover {
-    background-color: #9b5e9b;
+.bg-purple2 {
+    background: linear-gradient(#845c85, #b374b4);
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: ease-in-out .4s;
+}
+
+.bg-purple2:hover {
+    background: linear-gradient(#735074, #8b5b8b);
 }
 
 .bg-orange {
-    background-color: #b1763f;
+    background: linear-gradient(#e17417, #ea8936);
 }
 
-.bg-orange:hover {
-    background-color: #c7a07b;
+.bg-orange2 {
+    background: linear-gradient(#b35d11, #be712d);
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: ease-in-out .4s;
 }
 
-.font-64 {
-    font-size: 128px;
+.bg-orange2:hover {
+    background: linear-gradient(#9b500e, #ac6629);
 }
+
 
 .ft-black {
     color: #1e2330;
