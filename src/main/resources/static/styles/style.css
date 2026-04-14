@@ -122,11 +122,18 @@ body {
 
 
 .bg-red {
-    background-color: #b6625d;
+    background: linear-gradient(#ca423b, #d3615b);
 }
 
-.bg-red:hover {
-    background-color: #c77d7a;
+.bg-red2 {
+    background: linear-gradient(#ca5e59, #ce7570);
+    box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: ease-in-out .4s;
+}
+
+.bg-red2:hover {
+    background: linear-gradient(#b1544f, #c95852);
+    color: #c5cee2;
 }
 
 .bg-purple {
