@@ -124,7 +124,7 @@ public class UserServiceImpl implements IUserService{
     }
 
     public User login(String username, String password) {
-        Optional<User> user = userRepository.findByUsername(username);
+        Optional<User> user = userRepository.findByUsernameUser(username);
         // Basic check: verify user exists and password matches exactly
         if (user.isPresent() && user.get().getPasswordUser().equals(password)) {
             return user.get();
@@ -139,6 +139,6 @@ public class UserServiceImpl implements IUserService{
 
     public boolean existsByUsername(String username) {
         // Checks if the username is already in the database
-        return userRepository.findByUsername(username).isPresent();
+        return userRepository.findByUsernameUser(username).isPresent();
     }
 }

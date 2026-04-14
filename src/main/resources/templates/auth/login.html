@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <link rel="stylesheet" th:href="@{/styles/style.css}" href="../../static/styles/style.css">
+    <link rel="stylesheet" th:href="@{/styles/style.css}">
 </head>
 <body>
     <main class="login">
         <h1 class="title">Login</h1>
-        <form class="card" th:action="">
+        <form class="card" th:action="@{/login}" th:object="${user}" method="post">
             <label class="label" for="">Username</label>
-            <input class="textfield" type="text" placeholder="aalfaro-2025457" name="username" id="username" required>
+            <input class="textfield" type="text" placeholder="aalfaro-2025457" name="usernameUser" id="username" required>
             <label class="label" for="">Password</label>
-            <input class="textfield" type="password" placeholder="admin123" required>
-            <button class="btn">Log in</button>
+            <input class="textfield" type="password" placeholder="admin123" name="passwordUser" id="passwordUser" required>
+            <button type="submit" class="btn">Log in</button>
         </form>
-        <h3 class="title">¿No tienes usuario?, <a th:href="" href="">Registrate aqui</a></h3>
+        <h3 class="title">¿No tienes usuario?, <a class="anchor" th:href="@{register}">Registrate aqui!!</a></h3>
     </main>
 </body>
 </html>

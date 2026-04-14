@@ -112,11 +112,6 @@ public class UserController {
         return "auth/login";
     }
 
-    @GetMapping("/login")
-    public String showLoginForm() {
-        return "auth/login";
-    }
-
     @PostMapping("/register")
     public String registerUser(@ModelAttribute User user, Model model) {
         if (userService.existsByUsername(user.getUsernameUser())) {
@@ -126,12 +121,6 @@ public class UserController {
         }
         userService.registerUser(user);
         return "redirect:/login";
-    }
-
-    @GetMapping("/register")
-    public String showRegisterForm(Model model) {
-        model.addAttribute("user", new User());
-        return "auth/register";
     }
 
 }

@@ -10,8 +10,8 @@ body {
     margin: 1.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .title {
@@ -58,4 +58,18 @@ body {
 .btn:hover {
     background-color: #9fb3e9;
     color: #1e2330;
+}
+
+.anchor {
+    text-decoration: dashed;
+    color: #6b7ba5;
+    transition: ease-in-out .3s;
+}
+
+.anchor:hover {
+    color: #828ca5;
+}
+
+.anchor:focus{
+    color: #7d74b5;
 }
