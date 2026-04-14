@@ -12,7 +12,7 @@ import com.angelalfaro.kinalapp.entity.User;
 import com.angelalfaro.kinalapp.service.user.UserServiceImpl;
 
 @RequiredArgsConstructor
-@Controller("/auth")
+@Controller
 public class AuthWebController {
 
     private final UserServiceImpl userService;
@@ -48,7 +48,7 @@ public class AuthWebController {
     public String login(@RequestParam String username, @RequestParam String password, Model model) {
         User user = userService.login(username, password);
         if (user != null) {
-            return "redirect:/register";
+            return "redirect:/home";
         }
         model.addAttribute("error", "Invalid username or password");
         return "auth/login";

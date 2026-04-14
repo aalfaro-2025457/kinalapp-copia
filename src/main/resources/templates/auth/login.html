@@ -9,7 +9,7 @@
 <body>
     <main class="login">
 
-        <p th:if="${error}" th:text="${error}" class=""></p>
+        <p th:if="${error}" th:text="${error}" class="error"></p>
 
         <h1 class="title">Login</h1>
         <form class="card" th:action="@{login}" method="post">
