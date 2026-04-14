@@ -12,7 +12,7 @@ import com.angelalfaro.kinalapp.entity.User;
 import com.angelalfaro.kinalapp.service.user.UserServiceImpl;
 
 @RequiredArgsConstructor
-@Controller
+@Controller("/")
 public class AuthWebController {
 
     private final UserServiceImpl userService;
