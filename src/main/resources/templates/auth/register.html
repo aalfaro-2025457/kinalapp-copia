@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Register</title>
     <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <link rel="icon" th:href="@{/images/icons/kinal-icon.png}" type="image/x-icon">
 </head>
 
 <body>
@@ -14,7 +15,7 @@
         <div th:if="${error}" class="error">
             <span th:text="${error}">Error message</span>
         </div>
-        <h1 class="title">Register</h1>
+        <h2 class="title">Register</h2>
         <form class="card" th:action="@{register}" th:object="${user}" method="post">
             <label class="label" for="">Username</label>
             <input th:field="*{usernameUser}" class="textfield" type="text" placeholder="aalfaro-2025457"

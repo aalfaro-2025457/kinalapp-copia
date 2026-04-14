@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
     <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <link rel="icon" th:href="@{/images/icons/kinal-icon.png}" type="image/x-icon">
 </head>
 <body>
     <main class="login">
 
         <p th:if="${error}" th:text="${error}" class="error"></p>
 
-        <h1 class="title">Login</h1>
+        <h2 class="title">Login</h2>
         <form class="card" th:action="@{login}" method="post">
             <label class="label" for="">Username</label>
             <input class="textfield" type="text" placeholder="aalfaro-2025457" name="username" id="username" required>

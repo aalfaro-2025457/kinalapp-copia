@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Login</title>
-    <link rel="stylesheet" th:href="@{/styles/style.css}">
+    <link rel="stylesheet" th:href="@{/styles/style.css}" href="../static/styles/style.css">
+    <link rel="icon" th:ref="@{/images/icons/kinal-icon.png}" type="image/x-icon">
 </head>
 <body>
-    <main>
-        
+    <main class="home">
+        <h1 class="title">¿A que CRUD desea ingresar?</h1>
+        <div class="cruds">
+            <button class="btn crud bg-green">Clientes</button>
+            <button class="btn crud bg-red">Productos</button>
+            <button class="btn crud bg-purple">Ventas</button>
+            <button class="btn crud bg-orange">Detalles de Venta</button>
+        </div>
     </main>
 </body>
 </html>
