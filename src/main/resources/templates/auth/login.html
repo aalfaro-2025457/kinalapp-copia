@@ -8,12 +8,15 @@
 </head>
 <body>
     <main class="login">
+
+        <p th:if="${error}" th:text="${error}" class=""></p>
+
         <h1 class="title">Login</h1>
-        <form class="card" th:action="@{/login}" th:object="${user}" method="post">
+        <form class="card" th:action="@{login}" method="post">
             <label class="label" for="">Username</label>
-            <input class="textfield" type="text" placeholder="aalfaro-2025457" name="usernameUser" id="username" required>
+            <input class="textfield" type="text" placeholder="aalfaro-2025457" name="username" id="username" required>
             <label class="label" for="">Password</label>
-            <input class="textfield" type="password" placeholder="admin123" name="passwordUser" id="passwordUser" required>
+            <input class="textfield" type="password" placeholder="admin123" name="password" id="password" required>
             <button type="submit" class="btn">Log in</button>
         </form>
         <h3 class="title">¿No tienes usuario?, <a class="anchor" th:href="@{register}">Registrate aqui!!</a></h3>

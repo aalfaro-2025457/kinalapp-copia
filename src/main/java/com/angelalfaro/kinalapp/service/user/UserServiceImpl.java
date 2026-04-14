@@ -126,7 +126,7 @@ public class UserServiceImpl implements IUserService{
     public User login(String username, String password) {
         Optional<User> user = userRepository.findByUsernameUser(username);
         // Basic check: verify user exists and password matches exactly
-        if (user.isPresent() && user.get().getPasswordUser().equals(password)) {
+        if (user.isPresent() && user.get().getPasswordUser().trim().equals(password.trim())) {
             return user.get();
         }
         return null;

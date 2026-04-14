@@ -102,25 +102,4 @@ public class UserController {
         }
     }
 
-    @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password, Model model) {
-        User user = userService.login(username, password);
-        if (user != null) {
-            return "";
-        }
-        model.addAttribute("error", "Invalid username or password");
-        return "auth/login";
-    }
-
-    @PostMapping("/register")
-    public String registerUser(@ModelAttribute User user, Model model) {
-        if (userService.existsByUsername(user.getUsernameUser())) {
-            // Sends an error message back to the view
-            model.addAttribute("error", "Username is already taken");
-            return "auth/register";
-        }
-        userService.registerUser(user);
-        return "redirect:/login";
-    }
-
 }
