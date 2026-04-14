@@ -1,22 +1,36 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&icon_names=person_apron" />
     <title>Login</title>
     <link rel="stylesheet" th:href="@{/styles/style.css}" href="../static/styles/style.css">
-    <link rel="icon" th:ref="@{/images/icons/kinal-icon.png}" type="image/x-icon">
+    <link rel="icon" th:href="@{/images/icons/kinal-icon.png}" type="image/x-icon">
 </head>
+
 <body>
     <main class="home">
         <h1 class="title">KinalApp by Angel Alfaro</h1>
         <h1 class="title">¿A que CRUD desea ingresar?</h1>
         <div class="cruds">
-            <button class="btn crud bg-green">Clientes</button>
-            <button class="btn crud bg-red">Productos</button>
-            <button class="btn crud bg-purple">Ventas</button>
-            <button class="btn crud bg-orange">Detalles de Venta</button>
+            <article class="card bg-green">
+                <span class="material-symbols-outlined">
+                    person_apron
+                </span>
+            </article>
         </div>
     </main>
+
+    <footer class="footer">
+        <h3 class="title">@Copyright Angel Alfaro</h3>
+    </footer>
 </body>
+
 </html>

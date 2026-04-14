@@ -3,7 +3,7 @@ body {
     background-color:  #171f41 ;
     width: 100%;
     height: 80vh;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Courier New', Courier, monospace
 }
 
 .login {
@@ -93,14 +93,14 @@ body {
     margin: 1.3em;
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: stretch;
+    align-items: center;
+    justify-content: center;
+    gap: 1.8em;
 }
 
 .crud {
-    flex: 1;
     padding: 1.8rem;
-    font-size: 1.7em;
+    font-size: 2.5rem;
     color: #e9ebf0;
 }
 
@@ -134,4 +134,17 @@ body {
 
 .bg-orange:hover {
     background-color: #c7a07b;
+}
+
+.footer {
+    width: 100%;
+    height: 10vh;
+    border-top: thick #1d213a;
+    background-color: #262c50;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
