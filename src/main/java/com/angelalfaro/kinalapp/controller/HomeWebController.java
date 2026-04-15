@@ -17,5 +17,15 @@ public class HomeWebController {
         return "home";
     }
     
+    @GetMapping("/clients")
+    public String goClients() {
+        return "";
+    }
+    
+    @GetMapping("/products")
+    public String goProducts() {
+        return "";
+    }
+    
 
 }
