@@ -62,9 +62,7 @@
                         <input class="textfield" type="number" th:field="*{stateProduct}">
                     </div>
                 </div>
-                <button type="submit" class="btn">Aceptar</button>
-                <a th:if="${newProduct.codeProduct != null}" th:href="@{/view/products}" class="btn bg-red2"
-                    style="text-decoration: none;">Cancelar</a>
+                <button type="submit" class="btn">Añadir</button>
             </form>
 
             <form th:action="@{/view/products/search}" method="get" class="card"

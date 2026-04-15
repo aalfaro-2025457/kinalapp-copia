@@ -29,7 +29,7 @@ public class HomeWebController {
 
     @GetMapping("/sales")
     public String goSales() {
-        return "cruds/sale";
+        return "redirect:/view/sales";
     }
 
     @GetMapping("/detail-sales")
