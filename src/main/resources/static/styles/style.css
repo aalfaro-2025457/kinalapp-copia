@@ -18,11 +18,13 @@ body {
 
 .title {
     color: #e9ebf0;
+    text-wrap: wrap;
 }
 
 .card {
     background-color:  #22336b;
     padding: 1.8em;
+    margin: 1.5em;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -58,6 +60,7 @@ body {
     padding: .5em;
     cursor: pointer;
     transition: ease-in-out .3s;
+    text-decoration: dashed;
 }
 
 .btn:hover {
@@ -213,7 +216,48 @@ body {
     color: #4b4444;
     cursor: not-allowed;
     text-decoration: none;
-  }
+}
+
+.clients-view {
+    margin: 1.5rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+}
+
+.clients {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: stretch;
+}
+
+.client {
+    max-width: 300px;
+}
+
+.client-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1.5rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
 
 .footer {
     width: 100%;
