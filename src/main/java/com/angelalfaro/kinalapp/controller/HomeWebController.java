@@ -19,12 +19,22 @@ public class HomeWebController {
     
     @GetMapping("/clients")
     public String goClients() {
-        return "";
+        return "cruds/clients";
     }
     
     @GetMapping("/products")
     public String goProducts() {
-        return "";
+        return "cruds/products";
+    }
+
+    @GetMapping("/sales")
+    public String goSales() {
+        return "cruds/sale";
+    }
+
+    @GetMapping("/detail-sales")
+    public String goDetailSales() {
+        return "cruds/detail-sale";
     }
     
 
