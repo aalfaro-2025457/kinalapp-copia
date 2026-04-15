@@ -19,7 +19,7 @@ public class HomeWebController {
     
     @GetMapping("/clients")
     public String goClients() {
-        return "cruds/clients";
+        return "redirect:/view/clients";
     }
     
     @GetMapping("/products")

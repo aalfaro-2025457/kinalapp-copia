@@ -16,7 +16,7 @@ public class Client {
     private String DPIClient;
 
     @Column(nullable = false)
-    private String nameClient;
+        private String nameClient;
 
     @Column(nullable = false)
     private String lastNameClient;
