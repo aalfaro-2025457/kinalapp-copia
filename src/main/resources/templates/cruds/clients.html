@@ -76,8 +76,8 @@
                     style="text-decoration: none; text-align: center;">Limpiar</a>
             </form>
 
-            <section class="clents" th:each="client : ${clients}">
-                <article class="card client bg-green">
+            <section class="clients">
+                <article  th:each="client : ${clients}" class="card client bg-green">
                     <h3 class="title" th:text="'DPI: ' + ${client.DPIClient}"></h3>
                     <h3 class="title" th:text="'Nombre: ' + ${client.nameClient}"></h3>
                     <h3 class="title" th:text="'Apellido: ' + ${client.lastNameClient}"></h3>

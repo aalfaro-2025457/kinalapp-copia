@@ -60,6 +60,7 @@ body {
     padding: .5em;
     cursor: pointer;
     transition: ease-in-out .3s;
+    text-decoration: dashed;
 }
 
 .btn:hover {
@@ -228,10 +229,11 @@ body {
     flex: 1;
 }
 
-.clents {
+.clients {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: stretch;
 }
 
 .client {
