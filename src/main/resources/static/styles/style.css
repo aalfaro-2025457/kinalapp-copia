@@ -18,11 +18,13 @@ body {
 
 .title {
     color: #e9ebf0;
+    text-wrap: wrap;
 }
 
 .card {
     background-color:  #22336b;
     padding: 1.8em;
+    margin: 1.5em;
     border-radius: 4px;
     display: flex;
     flex-direction: column;
@@ -230,6 +232,29 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+}
+
+.client {
+    max-width: 300px;
+}
+
+.client-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1.5rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    text-align: start;
 }
 
 .footer {

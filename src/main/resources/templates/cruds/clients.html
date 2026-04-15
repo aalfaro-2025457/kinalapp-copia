@@ -36,14 +36,45 @@
         <main class="clients-view">
             <h1 class="title">Clientes</h1>
             <h3 class="title">En esta vista usted puede crear nuevos clientes</h3>
+            <form class="card" th:action="@{/view/clients/save}" th:object="${newClient}" method="post">
+                <div class="card form">
+                    <div class="container">
+                        <label class="label" for="">DPI</label>
+                        <input class="textfield" type="text" th:field="*{DPIClient}" placeholder="1315464878152" name="dpi" id="dpi">
+                    </div>
+                    <div class="container">
+                        <label class="label" for="">Nombre</label>
+                        <input class="textfield" type="text" th:field="*{nameClient}" placeholder="Angel" name="name" id="name">
+                    </div>
+                    <div class="container">
+                        <label class="label" for="">Apellido</label>
+                        <input class="textfield" type="text" th:field="*{lastNameClient}" placeholder="Alfaro" name="lastName" id="lastName">
+                    </div>
+                    <div class="container">
+                        <label class="label" for="">Dirección</label>
+                        <input class="textfield" type="text" th:field="*{direction}" placeholder="Zona 7, Kaminal Juyu" name="direction"
+                            id="direction">
+                    </div>
+                    <div class="container">
+                        <label class="label" for="">Estado</label>
+                        <input class="textfield" type="number" th:field="*{state}" placeholder="1" name="name" id="name">
+                    </div>
+                </div>
+                <button type="submit" class="btn">Aceptar</button>
+            </form>
 
             <section class="clents" th:each="client : ${clients}">
-                <article class="card bg-green">
+                <article class="card client bg-green">
                     <h3 class="title" th:text="'DPI: ' + ${client.DPIClient}"></h3>
                     <h3 class="title" th:text="'Nombre: ' + ${client.nameClient}"></h3>
                     <h3 class="title" th:text="'Apellido: ' + ${client.lastNameClient}"></h3>
                     <h3 class="title" th:text="'Direccion: ' + ${client.direction}"></h3>
                     <h3 class="title" th:text="'Estado: ' + ${client.state}"></h3>
+
+                    <div class="client-actions">
+                        <a class="btn bg-green2">Editar</a>
+                        <a class="btn bg-red2">Eliminar</a>
+                    </div>
                 </article>
             </section>
         </main>
