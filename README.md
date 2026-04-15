@@ -43,9 +43,9 @@ Usando un IDE como:
 
 En estos **IDE's** sule haber un **boton** en el lado superior ya sea en el centro o al lado derecho para poder ejecutar el codigo
 
-![play button VsCode](src/main/resources/images/play-button-vsCode.png)
+![play button VsCode](src/main/resources/static/images/play-button-vsCode.png)
 
-![play button intellij](src/main/resources/images/button-play-intellij.webp)
+![play button intellij](src/main/resources/static/images/button-play-intellij.webp)
 
 ## Configuracion
 Esta aplicacion ya esta configurada en el **application.properties**, asi que la base de datos, usuario y contraseña ya estan ahi (Lo correcto seria usar variables de entorno)

@@ -122,4 +122,23 @@ public class UserServiceImpl implements IUserService{
         }
 
     }
+
+    public User login(String username, String password) {
+        Optional<User> user = userRepository.findByUsernameUser(username);
+        // Basic check: verify user exists and password matches exactly
+        if (user.isPresent() && user.get().getPasswordUser().trim().equals(password.trim())) {
+            return user.get();
+        }
+        return null;
+    }
+
+    public User registerUser(User user) {
+        // Business logic to save a new user
+        return userRepository.save(user);
+    }
+
+    public boolean existsByUsername(String username) {
+        // Checks if the username is already in the database
+        return userRepository.findByUsernameUser(username).isPresent();
+    }
 }
