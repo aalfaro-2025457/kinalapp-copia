@@ -82,7 +82,7 @@
             </form>
 
             <section class="clients">
-                <article th:each="sale : ${sales}" class="card client bg-green">
+                <article th:each="sale : ${sales}" class="card client bg-purple">
                     <h3 class="title" th:text="'ID Venta: ' + ${sale.codeSale}"></h3>
                     <h3 class="title" th:text="'Cliente: ' + ${sale.clientSale.nameClient}"></h3>
                     <h3 class="title" th:text="'Vendedor: ' + ${sale.userSale.usernameUser}"></h3>
@@ -93,7 +93,7 @@
                     <h3 class="title" th:text="'Estado: ' + ${sale.stateSale}"></h3>
 
                     <div class="client-actions">
-                        <a th:href="@{/view/sales/edit/{code}(code=${sale.codeSale})}" class="btn bg-green2">Editar</a>
+                        <a th:href="@{/view/sales/edit/{code}(code=${sale.codeSale})}" class="btn bg-purple2">Editar</a>
                         <a th:href="@{/view/sales/delete/{code}(code=${sale.codeSale})}"
                             class="btn bg-red2">Eliminar</a>
                     </div>
