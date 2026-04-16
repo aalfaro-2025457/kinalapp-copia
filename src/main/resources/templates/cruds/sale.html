@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" th:href="@{/styles/style.css}">
     <link rel="icon" th:href="@{/images/icons/kinal-icon.png}" type="image/x-icon">
 </head>
+
 <body>
     <div class="main-wrapper">
         <nav class="sidebar">
@@ -38,23 +40,43 @@
                     <div class="container">
                         <label class="label">Código de Venta</label>
                         <input class="textfield" type="number" th:field="*{codeSale}" readonly
-                               style="background-color: #e9e9e9; cursor: not-allowed;" placeholder="ID Automático">
+                            style="background-color: #e9e9e9; cursor: not-allowed;">
                     </div>
+
                     <div class="container">
-                        <label class="label">Total de la Venta</label>
-                        <input class="textfield" type="number" step="0.01" th:field="*{totalSale}" placeholder="0.00">
+                        <label class="label">Cliente (DPI)</label>
+                        <select class="textfield" th:field="*{clientSale}">
+                            <option value="" disabled selected>Seleccione un cliente</option>
+                            <option th:each="c : ${clients}" th:value="${c.DPIClient}"
+                                th:text="${c.DPIClient + ' - ' + c.nameClient}"></option>
+                        </select>
                     </div>
+
+                    <div class="container">
+                        <label class="label">Usuario (Vendedor)</label>
+                        <select class="textfield" th:field="*{userSale}">
+                            <option value="" disabled selected>Seleccione un usuario</option>
+                            <option th:each="u : ${users}" th:value="${u.codeUser}" th:text="${u.usernameUser}"></option>
+                        </select>
+                    </div>
+
+                    <div class="container">
+                        <label class="label">Total</label>
+                        <input class="textfield" type="number" step="0.01" th:field="*{totalSale}">
+                    </div>
+
                     <div class="container">
                         <label class="label">Estado</label>
-                        <input class="textfield" type="number" th:field="*{stateSale}" placeholder="1">
+                        <input class="textfield" type="number" th:field="*{stateSale}">
                     </div>
-                    </div>
-                <button type="submit" class="btn" th:text="${newSale.codeSale != null} ? 'Actualizar' : 'Añadir'"></button>
-                <a th:if="${newSale.codeSale != null}" th:href="@{/view/sales}" class="btn bg-red2" style="text-decoration: none;">Cancelar</a>
+                </div>
+                <button type="submit" class="btn">Aceptar</button>
             </form>
 
-            <form th:action="@{/view/sales/search}" method="get" class="card" style="margin: 2rem 0; display: flex; gap: 1rem; align-items: center; padding: 1rem;">
-                <input type="number" name="codeSearch" class="textfield" placeholder="Buscar por código de venta..." style="flex: 1;">
+            <form th:action="@{/view/sales/search}" method="get" class="card"
+                style="margin: 2rem 0; display: flex; gap: 1rem; align-items: center; padding: 1rem;">
+                <input type="number" name="codeSearch" class="textfield" placeholder="Buscar por código de venta..."
+                    style="flex: 1;">
                 <button type="submit" class="btn bg-green2">Buscar</button>
                 <a th:href="@{/view/sales}" class="btn bg-red2" style="text-decoration: none;">Limpiar</a>
             </form>
@@ -62,20 +84,26 @@
             <section class="clients">
                 <article th:each="sale : ${sales}" class="card client bg-green">
                     <h3 class="title" th:text="'ID Venta: ' + ${sale.codeSale}"></h3>
+                    <h3 class="title" th:text="'Cliente: ' + ${sale.clientSale.nameClient}"></h3>
+                    <h3 class="title" th:text="'Vendedor: ' + ${sale.userSale.usernameUser}"></h3>
+
                     <h3 class="title" th:text="'Total: Q' + ${sale.totalSale}"></h3>
-                    <h3 class="title" th:text="'Fecha: ' + ${#temporals.format(sale.saleDateSale, 'dd/MM/yyyy HH:mm')}"></h3>
+                    <h3 class="title" th:text="'Fecha: ' + ${#temporals.format(sale.saleDateSale, 'dd/MM/yyyy HH:mm')}">
+                    </h3>
                     <h3 class="title" th:text="'Estado: ' + ${sale.stateSale}"></h3>
 
                     <div class="client-actions">
                         <a th:href="@{/view/sales/edit/{code}(code=${sale.codeSale})}" class="btn bg-green2">Editar</a>
-                        <a th:href="@{/view/sales/delete/{code}(code=${sale.codeSale})}" class="btn bg-red2">Eliminar</a>
+                        <a th:href="@{/view/sales/delete/{code}(code=${sale.codeSale})}"
+                            class="btn bg-red2">Eliminar</a>
                     </div>
                 </article>
             </section>
         </main>
-    </div>
+    </div>1
     <footer class="footer">
         <h3 class="title">@Copyright Angel Alfaro</h3>
     </footer>
 </body>
+
 </html>

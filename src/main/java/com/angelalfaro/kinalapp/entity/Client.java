@@ -3,6 +3,7 @@ package com.angelalfaro.kinalapp.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class Client {
     @Column(nullable = false)
     private int state;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "clientSale", cascade = CascadeType.ALL)
     private List<Sale> salesClient;
 

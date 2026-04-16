@@ -2,6 +2,7 @@ package com.angelalfaro.kinalapp.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -27,16 +28,19 @@ public class Sale {
     @Column(nullable = false)
     private int stateSale;
 
+    @ToString.Exclude
     @JsonIgnoreProperties("salesClient")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "dpi_client", foreignKey = @ForeignKey(name = "FK_client"), nullable = false)
     private Client clientSale;
 
+    @ToString.Exclude
     @JsonIgnoreProperties("salesUser")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "codeUser", foreignKey = @ForeignKey(name = "FK_user"), nullable = false)
     private User userSale;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "saleDetailSale", cascade = CascadeType.ALL)
     private List<DetailSale> detailSalesSale;
 
