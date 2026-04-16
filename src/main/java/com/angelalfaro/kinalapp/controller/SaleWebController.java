@@ -1,7 +1,10 @@
 package com.angelalfaro.kinalapp.controller;
 
 import com.angelalfaro.kinalapp.entity.Sale;
+import com.angelalfaro.kinalapp.service.client.ClientService;
 import com.angelalfaro.kinalapp.service.sale.SaleServiceImpl;
+import com.angelalfaro.kinalapp.service.user.UserServiceImpl;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,17 +20,22 @@ import java.util.Optional;
 public class SaleWebController {
 
     private final SaleServiceImpl saleService;
+    private final ClientService clientService;
+    private final UserServiceImpl userService;
 
     @GetMapping
     public String getSales(Model model) {
         model.addAttribute("sales", saleService.listAllSales());
         model.addAttribute("newSale", new Sale());
+        
+        // Enviamos las listas para los selects del formulario
+        model.addAttribute("clients", clientService.listAll());
+        model.addAttribute("users", userService.listAllUsers());
         return "cruds/sale";
     }
 
     @PostMapping("/save")
     public String saveSale(@ModelAttribute("newSale") Sale sale) {
-        // El service ya maneja la lógica de estado por defecto y validación
         saleService.saveSale(sale);
         return "redirect:/view/sales";
     }
@@ -38,7 +46,9 @@ public class SaleWebController {
         if (saleToEdit.isPresent()) {
             model.addAttribute("sales", saleService.listAllSales());
             model.addAttribute("newSale", saleToEdit.get());
-            return "cruds/sales";
+            model.addAttribute("clients", clientService.listAll());
+            model.addAttribute("users", userService.listAllUsers());
+            return "cruds/sale";
         }
         return "redirect:/view/sales";
     }
@@ -59,6 +69,6 @@ public class SaleWebController {
         }
         model.addAttribute("sales", results);
         model.addAttribute("newSale", new Sale());
-        return "cruds/sales";
+        return "cruds/sale";
     }
 }
