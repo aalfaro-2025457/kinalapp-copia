@@ -43,34 +43,34 @@
                         <input class="textfield" type="text" th:field="*{DPIClient}"
                             th:readonly="${newClient.DPIClient != null}"
                             th:style="${newClient.DPIClient != null} ? 'background-color: #e9e9e9; cursor: not-allowed;' : ''"
-                            placeholder="1315464878152">
+                            placeholder="1315464878152" required>
                     </div>
                     <div class="container">
                         <label class="label" for="">Nombre</label>
                         <input class="textfield" type="text" th:field="*{nameClient}" placeholder="Angel" name="name"
-                            id="name">
+                            id="name" required>
                     </div>
                     <div class="container">
                         <label class="label" for="">Apellido</label>
                         <input class="textfield" type="text" th:field="*{lastNameClient}" placeholder="Alfaro"
-                            name="lastName" id="lastName">
+                            name="lastName" id="lastName" required>
                     </div>
                     <div class="container">
                         <label class="label" for="">Dirección</label>
                         <input class="textfield" type="text" th:field="*{direction}" placeholder="Zona 7, Kaminal Juyu"
-                            name="direction" id="direction">
+                            name="direction" id="direction" required>
                     </div>
                     <div class="container">
                         <label class="label" for="">Estado</label>
                         <input class="textfield" type="number" th:field="*{state}" placeholder="1" name="name"
-                            id="name">
+                            id="name" required>
                     </div>
                 </div>
                 <button type="submit" class="btn">Añadir</button>
             </form>
             <form th:action="@{/view/clients/search}" method="get" class="card"
                 style="margin-bottom: 2rem; display: flex; gap: 1rem; align-items: center; padding: 1rem;">
-                <input type="text" name="dpiSearch" class="textfield" placeholder="Buscar por DPI..." style="flex: 1;">
+                <input type="text" name="dpiSearch" class="textfield" placeholder="Buscar por DPI..." style="flex: 1;" required>
                 <button type="submit" class="btn bg-green2">Buscar</button>
                 <a th:href="@{/view/clients}" class="btn bg-red2"
                     style="text-decoration: none; text-align: center;">Limpiar</a>
