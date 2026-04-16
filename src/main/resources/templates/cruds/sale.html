@@ -40,12 +40,12 @@
                     <div class="container">
                         <label class="label">Código de Venta</label>
                         <input class="textfield" type="number" th:field="*{codeSale}" readonly
-                            style="background-color: #e9e9e9; cursor: not-allowed;">
+                            style="background-color: #e9e9e9; cursor: not-allowed;" required>
                     </div>
 
                     <div class="container">
                         <label class="label">Cliente (DPI)</label>
-                        <select class="textfield" th:field="*{clientSale}">
+                        <select class="textfield" th:field="*{clientSale}" required>
                             <option value="" disabled selected>Seleccione un cliente</option>
                             <option th:each="c : ${clients}" th:value="${c.DPIClient}"
                                 th:text="${c.DPIClient + ' - ' + c.nameClient}"></option>
@@ -54,7 +54,7 @@
 
                     <div class="container">
                         <label class="label">Usuario (Vendedor)</label>
-                        <select class="textfield" th:field="*{userSale}">
+                        <select class="textfield" th:field="*{userSale}" required>
                             <option value="" disabled selected>Seleccione un usuario</option>
                             <option th:each="u : ${users}" th:value="${u.codeUser}" th:text="${u.usernameUser}"></option>
                         </select>
@@ -62,12 +62,12 @@
 
                     <div class="container">
                         <label class="label">Total</label>
-                        <input class="textfield" type="number" step="0.01" th:field="*{totalSale}">
+                        <input class="textfield" type="number" step="0.01" th:field="*{totalSale}" required>
                     </div>
 
                     <div class="container">
                         <label class="label">Estado</label>
-                        <input class="textfield" type="number" th:field="*{stateSale}">
+                        <input class="textfield" type="number" th:field="*{stateSale}" required>
                     </div>
                 </div>
                 <button type="submit" class="btn">Aceptar</button>
@@ -76,7 +76,7 @@
             <form th:action="@{/view/sales/search}" method="get" class="card"
                 style="margin: 2rem 0; display: flex; gap: 1rem; align-items: center; padding: 1rem;">
                 <input type="number" name="codeSearch" class="textfield" placeholder="Buscar por código de venta..."
-                    style="flex: 1;">
+                    style="flex: 1;" required>
                 <button type="submit" class="btn bg-green2">Buscar</button>
                 <a th:href="@{/view/sales}" class="btn bg-red2" style="text-decoration: none;">Limpiar</a>
             </form>
