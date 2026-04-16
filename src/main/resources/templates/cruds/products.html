@@ -74,7 +74,7 @@
             </form>
 
             <section class="clients">
-                <article th:each="product : ${products}" class="card client bg-green">
+                <article th:each="product : ${products}" class="card client bg-red">
                     <h3 class="title" th:text="'Código: ' + ${product.codeProduct}"></h3>
                     <h3 class="title" th:text="'Producto: ' + ${product.nameProduct}"></h3>
                     <h3 class="title" th:text="'Precio: Q' + ${product.priceProduct}"></h3>
@@ -83,7 +83,7 @@
 
                     <div class="client-actions">
                         <a th:href="@{/view/products/edit/{code}(code=${product.codeProduct})}"
-                            class="btn bg-green2">Editar</a>
+                            class="btn bg-red21">Editar</a>
                         <a th:href="@{/view/products/delete/{code}(code=${product.codeProduct})}"
                             class="btn bg-red2">Eliminar</a>
                     </div>
