@@ -24,12 +24,12 @@ public class HomeWebController {
     
     @GetMapping("/products")
     public String goProducts() {
-        return "cruds/products";
+        return "redirect:/view/products";
     }
 
     @GetMapping("/sales")
     public String goSales() {
-        return "cruds/sale";
+        return "redirect:/view/sales";
     }
 
     @GetMapping("/detail-sales")
