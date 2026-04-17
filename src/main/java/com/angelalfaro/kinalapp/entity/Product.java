@@ -2,6 +2,7 @@ package com.angelalfaro.kinalapp.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -27,6 +28,7 @@ public class Product {
     @Column(nullable = false)
     private int stateProduct;
 
+    @ToString.Exclude
     @OneToMany(mappedBy = "productDetailProduct", cascade = CascadeType.ALL)
     private List<DetailSale> detailSalesProduct;
 

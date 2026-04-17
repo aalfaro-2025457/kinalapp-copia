@@ -4,8 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @RequiredArgsConstructor
 @Controller
@@ -34,7 +32,7 @@ public class HomeWebController {
 
     @GetMapping("/detail-sales")
     public String goDetailSales() {
-        return "cruds/detail-sale";
+        return "redirect:/view/detail-sales";
     }
     
 
