@@ -233,14 +233,15 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: stretch;
+    justify-content: center;
+    align-items: center;
 }
 
 .client {
     max-width: 300px;
 }
 
-.client-actions {
+.actions {
     display: flex;
     justify-content: center;
     align-items: center;
