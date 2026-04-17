@@ -42,11 +42,11 @@
                     <div class="container">
                         <label class="label">Código de Producto</label>
                         <input class="textfield" type="number" th:field="*{codeProduct}" readonly
-                            style="background-color: #e9e9e9; cursor: not-allowed;" placeholder="ID Automático" required>
+                            style="background-color: #e9e9e9; cursor: not-allowed;" placeholder="Codigo Automatico" required>
                     </div>
                     <div class="container">
                         <label class="label">Nombre del Producto</label>
-                        <input class="textfield" type="text" th:field="*{nameProduct}" placeholder="Ej: Playera Polo" required>
+                        <input class="textfield" type="text" th:field="*{nameProduct}" placeholder="Pera" required>
                     </div>
                     <div class="container">
                         <label class="label">Precio</label>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="container">
                         <label class="label">Stock</label>
-                        <input class="textfield" type="number" th:field="*{stockProduct}" placeholder="10" required>
+                        <input class="textfield" type="number" th:field="*{stockProduct}" placeholder="0.00" required>
                     </div>
                     <div class="container">
                         <label class="label">Estado (1: Activo, 0: Inactivo)</label>
@@ -66,11 +66,13 @@
             </form>
 
             <form th:action="@{/view/products/search}" method="get" class="card"
-                style="margin-bottom: 2rem; display: flex; gap: 1rem; align-items: center; padding: 1rem;">
-                <input type="number" name="codeSearch" class="textfield" placeholder="Buscar por código..."
+                >
+                <input type="number" name="codeSearch" class="textfield" placeholder="1"
                     style="flex: 1;" required>
-                <button type="submit" class="btn bg-green2">Buscar</button>
-                <a th:href="@{/view/products}" class="btn bg-red2" style="text-decoration: none;">Limpiar</a>
+                <div class="actions">
+                    <button type="submit" class="btn bg-green2">Buscar</button>
+                    <a th:href="@{/view/products}" class="btn bg-red2" style="text-decoration: none;">Limpiar</a>
+                </div>
             </form>
 
             <section class="clients">
@@ -81,9 +83,9 @@
                     <h3 class="title" th:text="'Stock: ' + ${product.stockProduct}"></h3>
                     <h3 class="title" th:text="'Estado: ' + ${product.stateProduct}"></h3>
 
-                    <div class="client-actions">
+                    <div class="actions">
                         <a th:href="@{/view/products/edit/{code}(code=${product.codeProduct})}"
-                            class="btn bg-red21">Editar</a>
+                            class="btn bg-green2">Editar</a>
                         <a th:href="@{/view/products/delete/{code}(code=${product.codeProduct})}"
                             class="btn bg-red2">Eliminar</a>
                     </div>
