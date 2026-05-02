@@ -220,3 +220,28 @@ Sirve para eliminar un **Detalle de Venta** en la base de datos mediante el **co
 
 #### PUT `http://localhost:8081/detail-sales/{codeDetailSale}`
 EndPoint para actualizar un **Detalle de Venta** ya existente con el **codeDetailSale**, devuelve **status** `200 OK` y el detalle actualizado, o `400 Bad Request` si los datos son incorrectos.
+
+## Views
+
+En esta sección estaran unas imagenes de cada una de las vistas
+
+### Login View
+![login view](src/main/resources/static/images/views/login-view.png)
+
+### Register Views
+![register view](src/main/resources/static/images/views/register-view.png)
+
+### Home View
+![home view](src/main/resources/static/images/views/home-view.png)
+
+### Clients View
+![clients view](src/main/resources/static/images/views/clients-view.png)
+
+### Products View
+![products view](src/main/resources/static/images/views/products-view.png)
+
+### Sales View
+![sales view](src/main/resources/static/images/views/sales-view.png)
+
+### Detal-Sales Views
+![detail-sales view](src/main/resources/static/images/views/detail-sales-view.png)
