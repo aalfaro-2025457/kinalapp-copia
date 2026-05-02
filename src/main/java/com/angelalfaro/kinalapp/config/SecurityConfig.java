@@ -14,15 +14,24 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
-            //Disable CORS, to use postman web
-            .csrf(csrf -> csrf.disable())
-            //Can use any endpoint without credentials
-            .authorizeHttpRequests(auth -> auth
-                    .anyRequest().permitAll()
-            );
+                .authorizeHttpRequests( auth -> auth
+                        .requestMatchers("/styles/**","/scripts/**","/login").permitAll()
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()
+                )
+                .formLogin( form -> form
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/", true)
+                        .permitAll()
+                )
+                .logout( logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
+                        .invalidateHttpSession(true)
+                        .permitAll()
+                );
 
         return http.build();
-
     }
 
 }
