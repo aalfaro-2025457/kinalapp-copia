@@ -211,6 +211,12 @@ body {
     scale: 1.05;
 }
 
+.logout {
+    background-color: #14655100;
+    border: 0;
+    cursor: pointer;
+}
+
 .disabled {
     pointer-events: none;
     color: #4b4444;
