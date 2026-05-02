@@ -245,3 +245,7 @@ En esta sección estaran unas imagenes de cada una de las vistas
 
 ### Detal-Sales Views
 ![detail-sales view](src/main/resources/static/images/views/detail-sales-view.png)
+
+## Spring Security
+
+Se ha configurado exitosamente **Spring Security** en el proyecto **Kinal App**. Ya no puedes ingresar a las vistas crud/* ni a la vista home, si no estas logueado. Tambien en caso de no estar logueado puedes ir a la vista de register y a la vista de login. El boton logout en todas las vistas que lo poseen es completamente funcional y cierra la sesion con exito.
