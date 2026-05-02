@@ -1,6 +1,5 @@
 package com.angelalfaro.kinalapp.controller;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.angelalfaro.kinalapp.entity.User;
