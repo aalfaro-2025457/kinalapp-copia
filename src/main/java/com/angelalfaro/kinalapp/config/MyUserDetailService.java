@@ -5,18 +5,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.angelalfaro.kinalapp.entity.User;
 import com.angelalfaro.kinalapp.repository.UserRepository;
 
+@Service
 public class MyUserDetailService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
 
     @Override
-    @Bean
-    public UserDetails loadUserByUsername(String user){
+    public UserDetails loadUserByUsername(String user) throws UsernameNotFoundException{
         User u = userRepository.findByUsernameUser(user)
             .orElseThrow(() -> new UsernameNotFoundException("User not found:" + user));
 
