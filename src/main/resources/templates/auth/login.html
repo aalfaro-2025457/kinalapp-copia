@@ -12,10 +12,11 @@
 </head>
 <body>
     <main class="login">
-
-        <p th:if="${error}" th:text="${error}" class="error"></p>
         <h1 class="title">KinalApp by Angel Alfaro</h1>
         <h2 class="title">Login</h2>
+        <div th:if="${param.error}" class="error">
+            Usuario o contraseña incorrectos.
+        </div>
         <div th:if="${param.logout}" class="logout-msg">
             Has cerrado sesión correctamente.
         </div>
